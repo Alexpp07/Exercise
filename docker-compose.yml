@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  react-app:
+    build: ./my-app
+    command: npm start
+    volumes:
+      - ./my-app:/app
+    working_dir: /app
+    ports:
+      - 3000:3000
+    depends_on:
+      - quarkus-app
+    networks:
+      - our_network
+
+  quarkus-app:
+    image: quarkus-quickstarts/quartz:latest
+    build:
+      context: ./code-with-quarkus
+      dockerfile: src/main/docker/Dockerfile.jvm
+    command: quarkus dev
+    ports:
+      - 8080:8080
+    networks:
+      - our_network
+
+networks:
+  our_network:
+    driver: bridge
