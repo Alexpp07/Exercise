@@ -1,0 +1,82 @@
+/* Card Container */
+.card-container {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Card styles */
+.card {
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-content {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-title {
+  max-width: fit-content;
+  font-size: 1.5em;
+  margin: 0 0 8px 0;
+}
+
+.card-description {
+  font-size: 1em;
+  color: #6e6e6e;
+  margin: 0 0 16px 0;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.card-button {
+  background-color: #54a6ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+.inputLabseq {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 12px 10px;
+  margin: 8px 0px;
+}
+
+.answer {
+  max-width: 900px;
+  font-size: 1.5em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: center;
+  margin: 0;
+}
