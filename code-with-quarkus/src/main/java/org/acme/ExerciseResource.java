@@ -5,6 +5,9 @@ import java.math.BigInteger;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+
+import io.quarkus.cache.CacheResult;
+
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
@@ -60,6 +63,7 @@ public class ExerciseResource {
         return Response.ok(result.toString()).build();
     } 
 
+    @CacheResult(cacheName = "labseq-cache")
     private BigInteger calculation(int n){
 
         if (n == 0) return BigInteger.ZERO;
@@ -67,7 +71,6 @@ public class ExerciseResource {
         if (n == 2) return BigInteger.ZERO;
         if (n == 3) return BigInteger.ONE;
         
-        // Create an array to store the values of the sequence
         BigInteger[] labseq = new BigInteger[n + 1];
         labseq[0] = BigInteger.ZERO;
         labseq[1] = BigInteger.ONE;
